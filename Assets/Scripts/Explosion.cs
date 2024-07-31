@@ -6,6 +6,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
+    
     private int _chanceExplosion = 100;
 
     private void OnMouseUpAsButton()
