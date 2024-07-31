@@ -12,21 +12,29 @@ public class Explosion : MonoBehaviour
         int minNumber = 2;
         int maxNumber = 7;
         int cubeNumber = Random.Range(minNumber, maxNumber);
+        int chanceExplosion = 100;
+        int maxChance = 100;
+        int randomChance = Random.Range(0, maxChance);
 
         Destroy(_gameObject);
 
-        Vector3 position = _gameObject.transform.position;
-
-        ChangeScale();
-
-        for (int i = 0; i < cubeNumber; i++)
+        if (chanceExplosion > randomChance)
         {
-            Instantiate(_gameObject, position, Quaternion.identity);
+            Vector3 position = _gameObject.transform.position;
 
-            ChangeColor();
+            ChangeScale();
+
+            for (int i = 0; i < cubeNumber; i++)
+            {
+                Instantiate(_gameObject, position, Quaternion.identity);
+
+                ChangeColor();
+            }
+
+            Explode();
+
+            chanceExplosion /= 2;
         }
-
-        Explode();
     }
 
     private void Explode()
