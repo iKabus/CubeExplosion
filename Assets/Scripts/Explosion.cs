@@ -6,19 +6,20 @@ public class Explosion : MonoBehaviour
     [SerializeField] private GameObject _gameObject;
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
+    private int _chanceExplosion = 100;
 
     private void OnMouseUpAsButton()
     {
         int minNumber = 2;
         int maxNumber = 7;
         int cubeNumber = Random.Range(minNumber, maxNumber);
-        int chanceExplosion = 100;
+        
         int maxChance = 100;
         int randomChance = Random.Range(0, maxChance);
 
         Destroy(_gameObject);
 
-        if (chanceExplosion > randomChance)
+        if (_chanceExplosion > randomChance)
         {
             Vector3 position = _gameObject.transform.position;
 
@@ -33,7 +34,7 @@ public class Explosion : MonoBehaviour
 
             Explode();
 
-            chanceExplosion /= 2;
+            _chanceExplosion /= 2;
         }
     }
 
