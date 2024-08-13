@@ -32,6 +32,6 @@ public class Spawner : MonoBehaviour
         cube.ChangeColor();
         cube.ChangeScale();
 
-        _destruction.AddToArray(cube);
+        _destruction.AddToHits(cube);
     }
 }

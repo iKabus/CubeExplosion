@@ -17,7 +17,7 @@ public class Explosion : MonoBehaviour
         }
     }
 
-    public void AddToArray(Cube cube)
+    public void AddToHits(Cube cube)
     {
         if (TryGetComponent<Collider>(out Collider component))
         {
